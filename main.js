@@ -6,11 +6,18 @@ class WeatherAPI {
   }
 
   async getWeatherInfo(cityName) {
-    const response = await fetch(
-      `${this.baseUrl}?q=${cityName}&units=metric&lang=en&appid=${this.apiKey}`
-    );
-    const data = await response.json();
-    return data;
+    try {
+      const response = await fetch(
+        `${this.baseUrl}?q=${cityName}&units=metric&lang=en&appid=${this.apiKey}`
+      );
+      if (response.ok) {
+        const data = await response.json();
+      return data;
+      }
+      throw new Error("City not found");  // if response is not ok  throw an error
+    } catch (err) {
+      console.log(err);
+    }
   }
 }
 //Elementleri Seçmek

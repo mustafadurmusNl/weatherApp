@@ -1,10 +1,12 @@
 *{
     margin: 0px;
     padding: 0px;
+    box-sizing: border-box;
 }
+
 .home_container{
    
-    border: 5px solid red;
+    border: 5px solid rgb(38, 0, 255);
     background-color: yellow;
     height: 40px;
     width: 100%;
@@ -14,11 +16,12 @@
     align-items: center;
  }
  .home_container>div{
-     flex: 1;
-   
-     
+     flex: 1;       /*to divide the space equally between the two divs*/
  }
-
+ html, body {
+    height: 100%;
+    overflow: hidden; /* Prevent scrollbars */
+}
 body{
     font-family: Arial, Helvetica, sans-serif;
     background-image: url("https://img.freepik.com/free-vector/flat-design-monsoon-season-clouds-illustration_23-2149424294.jpg?w=1380&t=st=1709583773~exp=1709584373~hmac=b8d9216d644b6a403b8117c09655df3ddb06ea090f40855af3636d84c291c129");
@@ -29,13 +32,7 @@ body{
    
 
 }
-.main_container{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
 
-
-}
 .container{
     height: 100vh; /*to cover the whole screen and make it responsive for any size device*/
     display: flex;
@@ -63,7 +60,9 @@ body{
     opacity: 0.8;  /*to make the background color little transparent*/
     padding: 20px; /*to give some space inside the box*/
     margin-top: 40px;
+    margin-bottom: 20px;
     box-shadow: 5px 12px 20px black;
+    
 }
 .header{
     width: 100%; /*to cover the whole width of the box*/
@@ -101,4 +100,78 @@ body{
 .daily{
     margin-top: 10px;
     font-size: 20px;
+}
+.tooltip {
+    position: absolute;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.city-list{
+    background-color: rgb(255, 64, 0);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap; /* Allows the elements to wrap to the next line */
+}
+.city {
+    font-size: 20px;
+    padding: 10px;
+    margin: 10px; /* Adjusted margin to ensure even spacing */
+    width: 150px; /* Fixed width */
+    height: 150px; /* Fixed height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(22, 222, 248);
+    border-radius: 5px;
+    cursor: pointer;
+    box-sizing: border-box; /* Includes padding and border in the total width and height */
+}
+.degree{
+    padding: 10px;
+    font-size: 40px;
+    margin-bottom: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+}
+.desc{
+    font-size: 17px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+
+}
+
+.degree, .desc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Ensures content width matches the container */
+    text-align: center; /* Centers text within the element */
+}
+.city-name{
+    font-size: 25px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Ensures content width matches the container */
+    text-align: center;
+}
+
+.internationalCity-list{
+    background-color: rgb(255, 64, 0);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap; /* Allows the elements to wrap to the next line */
 }

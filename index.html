@@ -4,43 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>weather forecast</title>
-   <link rel ="stylesheet" href="style.css">
- 
-   
+    <title>Weather Forecast</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
     <nav class="home_container">
-
-        <div class="home"><a href="https://docs.google.com/document/d/1QJB9FhQ_7rDN_q8NrCZw4D-snW3pntRnT_e8ONQQQ7Y/edit">Home</a>
-    
+        <div class="home"><a href="https://docs.google.com/document/d/1QJB9FhQ_7rDN_q8NrCZw4D-snW3pntRnT_e8ONQQQ7Y/edit">Home</a></div>
+        <div class="search">Search</div>
+        <div class="logout">Log Out</div>
+    </nav>
+    <div class="container">
+        <div class="city-list">
+            <!-- This will hold the list of cities and their weather info -->
         </div>
-    <div class="seach">Seach</div>
-    <div class="logout">Log Out</div>
-    </div>
-        </nav>
-        <div class="container">
-            <div class="app">
-                <div class="header">
-                    <h1 class="title"> Weather Forecast</h1>
-             
-                    <input id="searchInput" type="text" placeholder="type a city name">
-                </div>
-                <div class="content">
-                    <div class="cityName">Roterdam</div>
-                    <div class="degree">12</div>
-                    <div class="desc">cloudy</div>
-                </div>
-                <div class="daily">Daily</div>
-            </div>      
+        <div class="app">
+            <div class="header">
+                <h1 class="title">Weather Forecast</h1>
+                <input id="searchInput" type="text" placeholder="type a city name">
+            </div>
+            <div class="content">
+                <div class="cityName">Rotterdam</div>
+                <div class="degree">12°</div>
+                <div class="desc">cloudy</div>
+            </div>
+            <div class="daily">Daily</div>
+        </div> 
+        <div class="internationalCity-list">
+            <!-- This will hold the list of international cities and their weather info -->
+        </div>
     </div>    
-              </div>
-    </div>
-       </div>
-  
-   <script src="study.js"></script>
-
+    <script type="module" src="main.js"></script>
 </body>
-
 </html>
