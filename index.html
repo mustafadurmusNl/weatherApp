@@ -9,9 +9,10 @@
 </head>
 <body>
     <nav class="home_container">
-        <div class="home"><a href="https://docs.google.com/document/d/1QJB9FhQ_7rDN_q8NrCZw4D-snW3pntRnT_e8ONQQQ7Y/edit">Home</a></div>
-        <div class="search">Search</div>
-        <div class="logout">Log Out</div>
+        <div class="home">NETHERLAND</div>
+        <div class="today">TODAY</div>
+        <div class="world">WORLD</div>
+     
     </nav>
     <div class="container">
         <div class="city-list">
@@ -19,20 +20,23 @@
         </div>
         <div class="app">
             <div class="header">
+                <div class="icon"></div>
                 <h1 class="title">Weather Forecast</h1>
                 <input id="searchInput" type="text" placeholder="type a city name">
             </div>
             <div class="content">
-                <div class="cityName">Rotterdam</div>
-                <div class="degree">12°</div>
-                <div class="desc">cloudy</div>
+                <div class="cityName">City Name</div>
+                <div class="degree">Degree°</div>
+                <div class="desc">weather description</div>
+                <div class="loading" style="display: none;">Loading...</div>
+<div class="error" style="display: none;"></div>
             </div>
-            <div class="daily">Daily</div>
+          
         </div> 
         <div class="internationalCity-list">
             <!-- This will hold the list of international cities and their weather info -->
         </div>
     </div>    
-    <script type="module" src="main.js"></script>
+    <script type="module" src="app.js"></script>
 </body>
 </html>

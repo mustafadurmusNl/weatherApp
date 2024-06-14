@@ -9,26 +9,40 @@ export const cityListEl = document.querySelector(".city-list");
 export const internationalCityListEl = document.querySelector(
   ".internationalCity-list"
 );
+//
+const loadingEl = document.querySelector(".loading");
+const errorEl = document.querySelector(".error");
+//
 export const searchInput = document.getElementById("searchInput");
 
-export function findWeatherInfo(e) {
+export async function findWeatherInfo(e) {
   if (e.keyCode == "13") {
     //ascii value for enter key
     const cityName = searchInput.value.trim();
-    getWeatherInfo(cityName)
-      .then((data) => {
-        console.log(data);
+    try {
+      if (cityName) {
+        showLoading();
+   await delayForDisplayingInfo(1000);
+   	
+        const data = await getWeatherInfo(cityName);
+        console.log(data)
+     hideLoading();
         display(data);
-      })
-      .catch((err) => console.log(err));
+      }
+    } catch (err) {
+    hideLoading();
+      showError("please enter a valid city name");
+      clearWeatherData();
+    }
   }
 }
-
 function display(data) {
   cityNameEl.textContent = data.name;
   degreeEl.textContent = Math.round(data.main.temp) + "°";
-  descEl.textContent = data.weather[0].description;
   searchInput.value = "";
+  const description = data.weather[0].description;
+  descEl.textContent = description
+  setWeatherBackground(description);
 }
 
 function displayCityWeather(data, cityElement) {
@@ -62,11 +76,81 @@ function createCityElement(cityName, containerElement) {
 
   return cityElement;
 }
-export function initializeCities(cityList, containerElement) {
-  cityList.forEach((city) => {
-    const cityElement = createCityElement(city, containerElement);
-    getWeatherInfo(city)
-      .then((data) => displayCityWeather(data, cityElement))
-      .catch((err) => console.log(err));
+
+export async function initializeCities(cityList, containerElement) {
+  try {
+    // Clear existing city elements
+    containerElement.innerHTML = "";
+    // Iterate over cityList and fetch weather data for each city
+    for (const city of cityList) {
+      const cityElement = createCityElement(city, containerElement);
+      const data = await getWeatherInfo(city);
+      displayCityWeather(data, cityElement);
+      setWeatherBackground(data.weather[0].description);
+    }
+
+   
+  } catch (err) { 
+    console.log(err);
+  }
+}
+
+
+//
+function showLoading() {
+  //loading animation
+  loadingEl.style.display = "block"; // Show loading message
+  errorEl.style.display = "none"; // Hide error message
+}
+
+function hideLoading() {
+  loadingEl.style.display = "none";// Hide loading message
+}
+
+function showError(message) {
+  errorEl.textContent = message;
+  errorEl.style.display = "block";// Show error message
+}
+function clearWeatherData() {
+  cityNameEl.textContent = "";
+  degreeEl.textContent = "";
+  descEl.textContent = "";
+}
+function delayForDisplayingInfo(ms) {
+  return new Promise(resolve => {
+    clearWeatherData(); // Clear previous weather data
+    setTimeout(() => {
+      resolve();
+    }, ms);
   });
+}
+
+function setWeatherBackground(description) {
+  const appContainer = document.querySelector('.icon');
+  let backgroundImage = '';
+
+  const descLower = description.toLowerCase();
+
+  switch (true) {
+    case descLower.includes('clear'):
+      backgroundImage = 'url(images/clear.png)';
+      break;
+    case descLower.includes('cloud'):
+      backgroundImage = 'url(images/cloud.png)';
+      break;
+    case descLower.includes('rain'):
+      backgroundImage = 'url(images/raining.png)';
+      break;
+    case descLower.includes('thunder'):
+      backgroundImage = 'url(images/thunder.png)';
+      break;
+    case descLower.includes('snow'):
+      backgroundImage = 'url(images/snow.png)';
+      break;
+    default:
+      backgroundImage = 'url(images/default.jpg)';
+      break;
+  }
+
+  appContainer.style.backgroundImage = backgroundImage;
 }

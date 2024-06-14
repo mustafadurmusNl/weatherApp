@@ -4,7 +4,7 @@ export const cities = [
     "The Hague",
     "Utrecht",
     "Eindhoven",
-    "Bergen op Zoom",
+    "Breda",
   ];
  export const internationalCities = [
     "New York",
