@@ -1,238 +1,231 @@
-*{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
 }
 
 .home_container {
-    flex: 1;
+    width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: center; 
-  text-align: center;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    font-size: 20px;
-    height: 40px;
     padding: 10px;
-   
+  
 }
 .home, .today, .world {
-    flex: 1;
+    opacity: 0.7;
+    font-size: 20px;
+    border-radius: 10px;
+   flex: 0.3;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 10px;
     padding: 10px;
+   
 }
 
 .home {
-    background-color: orange;
+  background-color: orange;
 }
 
 .today {
-    background-color: orchid;
+  background-color: orchid;
 }
 
 .world {
-    background-color: red;
-    max-width: 300px;
+
+  background-color: rgb(255, 234, 0);
+
 }
- html, body {
-    height: 100%;
-    overflow: hidden; /* Prevent scrollbars */
+html,
+body {
+  height: 100%;
+  overflow: hidden; /* Prevent scrollbars */
 }
-body{
-    font-family: Arial, Helvetica, sans-serif;
-    background-image: url("https://cdn.dribbble.com/userupload/12944901/file/original-60baefa3440135c24c8c9f2432ef2caf.jpg?resize=1200x900");
-    background-repeat: no-repeat;  /*to avoid background repitition */
-    background-position: center;
-    background-size:cover ;
-    height: 100vh;  /*to cover the whole screen and make it responsive for any size device*/
-    
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: url("https://cdn.dribbble.com/userupload/12944901/file/original-60baefa3440135c24c8c9f2432ef2caf.jpg?resize=1200x900");
+  background-repeat: no-repeat; /*to avoid background repitition */
+  background-position: center;
+  background-size: cover;
+  height: 100vh; /*to cover the whole screen and make it responsive for any size device*/
 }
 
-.container{ 
-    flex: 1;
-    display: grid;
-    align-items: center;
-    justify-content: center;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    max-width: 1200px; /* Set a maximum width if needed */
-    margin: 0 auto; /* Center the container */
-    padding: 40px;
- 
-}
-
-.content{
- 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 25px; /*to give some space from the top*/
+.container {
+  flex: 1;
+  display: grid; /*to make the layout responsive*/
+  justify-content: space-around;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px; /* Set a maximum width if needed */
+  margin: 0 auto; /* Center the container */
+  padding: 40px;
   
 }
 
-.app{
- 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 400px;
-    background-color: lightgrey;
-    opacity: 1;  /*to make the background color little transparent*/
-    padding: 20px; /*to give some space inside the box*/
-    margin-top: 40px;
-    margin-bottom: 20px;
-    box-shadow: 5px 12px 20px black;
-    padding: 0;
-    border-radius: 15px;
-
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25px; /*to give some space from the top*/
 }
-.header{
-    width: 100%; /*to cover the whole width of the box*/
-    display: flex; 
-    flex-direction: column;     
-    align-items: center;
-    justify-content: center;
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  background-color: lightgrey;
+  opacity: 1; /*to make the background color little transparent*/
+  padding: 20px; /*to give some space inside the box*/
+  margin-top: 40px;
+  margin-bottom: 20px;
+  box-shadow: 5px 12px 20px black;
+  padding: 0;
+  border-radius: 15px;
+}
+.header {
+  width: 100%; /*to cover the whole width of the box*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .icon {
-    width: 400px;
-    height: 200px;
-    height: 200px;
-    margin-bottom: 10px;
-    background-repeat: no-repeat; /* Prevent image duplication */
-    background-size: cover; /* Ensure the image fits within the container */
-    background-position: center; /* Center the image */
-    position : relative;
-    z-index: 1;
+  width: 400px;
+  height: 200px;
+  height: 200px;
+  margin-bottom: 10px;
+  background-repeat: no-repeat; /* Prevent image duplication */
+  background-size: cover; /* Ensure the image fits within the container */
+  background-position: center; /* Center the image */
+  position: relative;
+  z-index: 1;
 }
 
-.title{
-    color: rgb(255, 64, 0);
-   
+.title {
+  color: rgb(255, 64, 0);
 }
-#searchInput{
-    width: 90%;
-    padding: 10px;
-    background-color: transparent;
-    border: none;
-    border-bottom: 1px solid grey;
-    outline: none; /*to remove the border when clicked*/
-    font-size: 20px;
-    text-align: center;
-    margin-top: 15px;
+#searchInput {
+  width: 90%;
+  padding: 10px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid grey;
+  outline: none; /*to remove the border when clicked*/
+  font-size: 20px;
+  text-align: center;
+  margin-top: 15px;
 }
-.cityName{
-    font-size: 40px;
-    margin-bottom: 15px
+.cityName {
+  font-size: 40px;
+  margin-bottom: 15px;
 }
-.degree{
-    font-size: 25px;
-    margin-bottom: 10px;
+.degree {
+  font-size: 25px;
+  margin-bottom: 10px;
 }
-.desc{
-    font-size: 25px;
-    margin-bottom: 10px;
+.desc {
+  font-size: 25px;
+  margin-bottom: 10px;
 }
-.daily{
-    margin-top: 10px;
-    font-size: 20px;
+.daily {
+  margin-top: 10px;
+  font-size: 20px;
 }
 .tooltip {
-    position: absolute;
-    background-color: rgb(229, 229, 229);
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  background-color: rgb(229, 229, 229);
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
-.city-list{
-   
-    opacity: 0.7;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-top: 20px;
-    flex-wrap: wrap; /* Allows the elements to wrap to the next line */
+.city-list {
+    flex: 2;
+  opacity: 0.7;
+  display: flex;align-items: flex-start;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 20px;
+  flex-wrap: wrap; /* Allows the elements to wrap to the next line */
 }
 .city {
-    
-    font-size: 20px;
-    padding: 10px;
-    margin: 10px; /* Adjusted margin to ensure even spacing */
-    width: 150px; /* Fixed width */
-    height: 150px; /* Fixed height */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(248, 235, 86);
-    border-radius: 15px;
-    cursor: pointer;
-    box-sizing: border-box; /* Includes padding and border in the total width and height */
+  font-size: 20px;
+  padding: 10px;
+  margin: 10px; /* Adjusted margin to ensure even spacing */
+  width: 150px; /* Fixed width */
+  height: 150px; /* Fixed height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(248, 235, 86);
+  border-radius: 15px;
+  cursor: pointer;
+  box-sizing: border-box; /* Includes padding and border in the total width and height */
 }
-.degree{
-    margin-top: 10px;
-    padding: 10px;
-    font-size: 40px;
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 40px;
+.degree {
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 40px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
 }
-.desc{
-    margin-top: 10px;
-    font-size: 17px;
-    margin-bottom: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 30px;
-
+.desc {
+  margin-top: 10px;
+  font-size: 17px;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
 }
 
-.degree, .desc {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%; /* Ensures content width matches the container */
-    text-align: center; /* Centers text within the element */
+.degree,
+.desc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* Ensures content width matches the container */
+  text-align: center; /* Centers text within the element */
 }
-.city-name{
-    
-    font-size: 25px;
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%; /* Ensures content width matches the container */
-    text-align: center;
+.city-name {
+  font-size: 25px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* Ensures content width matches the container */
+  text-align: center;
 }
 
-.internationalCity-list{
-    flex: 1;
-    max-width: 400px;
-    opacity: 0.7;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-top: 20px;
-    flex-wrap: wrap; /* Allows the elements to wrap to the next line */
+.internationalCity-list {
+  flex: 1;
+  max-width: 400px;
+  opacity: 0.7;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 20px;
+  flex-wrap: wrap; /* Allows the elements to wrap to the next line */
 }
-.error{
-    color: red;
-    font-size: 20px;
-    margin-top: 10px;
-}   
-.loading{
-    color: green;
-    font-size: 50px;
-    margin-top: 10px;
-    margin-bottom: 50px;
+.error {
+  color: red;
+  font-size: 20px;
+  margin-top: 10px;
+}
+.loading {
+  color: green;
+  font-size: 50px;
+  margin-top: 10px;
+  margin-bottom: 50px;
 }
