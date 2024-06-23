@@ -1,6 +1,6 @@
 # WeatherApp
 
-![WeatherApp](url_to_your_image)
+![WeatherApp](./images/Screenshot%202024-06-23%20162402.png)
 
 WeatherApp is a simple application designed to provide users with weather information for various cities around the world. Users can input a city name and get real-time weather data along with a relevant background image for the searched city. Additionally, the app displays a list of predefined local and international cities for quick access to weather information.
 
