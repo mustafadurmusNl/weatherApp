@@ -1,10 +1,24 @@
 # WeatherApp
 
-![WeatherApp](/images/Screenshot%202024-06-23%20162402.png)
-
-## Description
+![WeatherApp](url_to_your_image)
 
 WeatherApp is a simple application designed to provide users with weather information for various cities around the world. Users can input a city name and get real-time weather data along with a relevant background image for the searched city. Additionally, the app displays a list of predefined local and international cities for quick access to weather information.
+
+[View live demo](https://mustafadurmusnl.github.io/weatherApp/)
+
+## Demo
+
+### Step 1: Input a City Name
+![Step 1](./images/1.png)
+*Enter a city name in the search box.*
+
+### Step 2: Loading Animation
+![Step 2](./images/2.png)
+*A loading animation is displayed while fetching weather data.*
+
+### Step 3: Weather Information
+![Step 3](./images/3.png)
+*Display of weather information for the selected city.*
 
 ## Features
 
@@ -40,13 +54,9 @@ WeatherApp is a simple application designed to provide users with weather inform
    - The app will display the current weather information (temperature, humidity, etc.) for the searched city.
    - A relevant background image will be set based on the searched city.
 
-5. **Additional Information:**
-   - The app also lists predefined cities for quick weather checks.
-   - Clicking on a predefined city will display weather information and update the background accordingly.
-
 ## Screenshots
 
-(Include screenshots of your application in action, showcasing different city searches and their corresponding backgrounds.)
+(Include additional screenshots of your application in action, showcasing different city searches and their corresponding backgrounds.)
 
 ## Credits
 
