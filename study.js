@@ -1,55 +1,59 @@
 import { getWeatherInfo } from "./api.js";
+import { weatherConditions } from "./data.js";
+import {
+  showLoading,
+  hideLoading,
+  showError,
+  setWeatherBackground,
+  clearWeatherData,
+  delayForDisplayingInfo,
+} from "./utils.js";
 
 
-//select elements
 const cityNameEl = document.querySelector(".cityName");
 const degreeEl = document.querySelector(".degree");
 const descEl = document.querySelector(".desc");
+
+
 export const cityListEl = document.querySelector(".city-list");
 export const internationalCityListEl = document.querySelector(
   ".internationalCity-list"
 );
-//
-const loadingEl = document.querySelector(".loading");
-const errorEl = document.querySelector(".error");
-//
+
 export const searchInput = document.getElementById("searchInput");
 
 export async function findWeatherInfo(e) {
   if (e.keyCode == "13") {
-    //ascii value for enter key
+   
     const cityName = searchInput.value.trim();
     try {
       if (cityName) {
         showLoading();
-   await delayForDisplayingInfo(1000);
-   	
+        await delayForDisplayingInfo(1000);
         const data = await getWeatherInfo(cityName);
-        console.log(data)
-     hideLoading();
-        display(data);
+        console.log(data);
+        hideLoading();
+        displayWeather(data, document.querySelector('.icon'));
       }
     } catch (err) {
-    hideLoading();
+      hideLoading();
       showError("please enter a valid city name");
       clearWeatherData();
     }
   }
 }
-function display(data) {
-  cityNameEl.textContent = data.name;
-  degreeEl.textContent = Math.round(data.main.temp) + "°";
-  searchInput.value = "";
-  const description = data.weather[0].description;
-  descEl.textContent = description
-  setWeatherBackground(description);
-}
-
-function displayCityWeather(data, cityElement) {
-  const degree = Math.round(data.main.temp) + "°";
-  const description = data.weather[0].description;
-  cityElement.querySelector(".degree").textContent = degree;
-  cityElement.querySelector(".desc").textContent = description;
+function displayWeather(data, targetElement) {
+  const { name, main, weather } = data;
+  if (targetElement === document.querySelector('.icon')) {
+    cityNameEl.textContent = name;
+    degreeEl.textContent = `${Math.round(main.temp)}°`;
+    descEl.textContent = weather[0].description;
+    searchInput.value = "";
+  } else {
+    targetElement.querySelector(".degree").textContent = `${Math.round(main.temp)}°`;
+    targetElement.querySelector(".desc").textContent = weather[0].description;
+  }
+  setWeatherBackground(weather[0].description, targetElement);
 }
 
 function createCityElement(cityName, containerElement) {
@@ -79,78 +83,14 @@ function createCityElement(cityName, containerElement) {
 
 export async function initializeCities(cityList, containerElement) {
   try {
-    // Clear existing city elements
     containerElement.innerHTML = "";
-    // Iterate over cityList and fetch weather data for each city
     for (const city of cityList) {
       const cityElement = createCityElement(city, containerElement);
       const data = await getWeatherInfo(city);
-      displayCityWeather(data, cityElement);
-      setWeatherBackground(data.weather[0].description);
+      displayWeather(data, cityElement);
+      
     }
-
-   
-  } catch (err) { 
+  } catch (err) {
     console.log(err);
   }
-}
-
-
-//
-function showLoading() {
-  //loading animation
-  loadingEl.style.display = "block"; // Show loading message
-  errorEl.style.display = "none"; // Hide error message
-}
-
-function hideLoading() {
-  loadingEl.style.display = "none";// Hide loading message
-}
-
-function showError(message) {
-  errorEl.textContent = message;
-  errorEl.style.display = "block";// Show error message
-}
-function clearWeatherData() {
-  cityNameEl.textContent = "";
-  degreeEl.textContent = "";
-  descEl.textContent = "";
-}
-function delayForDisplayingInfo(ms) {
-  return new Promise(resolve => {
-    clearWeatherData(); // Clear previous weather data
-    setTimeout(() => {
-      resolve();
-    }, ms);
-  });
-}
-
-function setWeatherBackground(description) {
-  const appContainer = document.querySelector('.icon');
-  let backgroundImage = '';
-
-  const descLower = description.toLowerCase();
-
-  switch (true) {
-    case descLower.includes('clear'):
-      backgroundImage = 'url(images/clear.png)';
-      break;
-    case descLower.includes('cloud'):
-      backgroundImage = 'url(images/cloud.png)';
-      break;
-    case descLower.includes('rain'):
-      backgroundImage = 'url(images/raining.png)';
-      break;
-    case descLower.includes('thunder'):
-      backgroundImage = 'url(images/thunder.png)';
-      break;
-    case descLower.includes('snow'):
-      backgroundImage = 'url(images/snow.png)';
-      break;
-    default:
-      backgroundImage = 'url(images/default.jpg)';
-      break;
-  }
-
-  appContainer.style.backgroundImage = backgroundImage;
 }

@@ -12,9 +12,9 @@ class WeatherAPI {
       );
       if (response.ok) {
         const data = await response.json();
-      return data;
+        return data;
       }
-      throw new Error("City not found");  // if response is not ok  throw an error
+      throw new Error("City not found"); // if response is not ok  throw an error
     } catch (err) {
       console.log(err);
     }
