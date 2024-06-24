@@ -1,5 +1,4 @@
 import { getWeatherInfo } from "./api.js";
-import { weatherConditions } from "./data.js";
 import {
   showLoading,
   hideLoading,
@@ -31,7 +30,6 @@ export async function findWeatherInfo(e) {
         showLoading();
         await delayForDisplayingInfo(1000);
         const data = await getWeatherInfo(cityName);
-        console.log(data);
         hideLoading();
         displayWeather(data, document.querySelector('.icon'));
       }
