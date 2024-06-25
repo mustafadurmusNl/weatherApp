@@ -1,7 +1,7 @@
-import { weatherConditions } from "./data.js";
+import { weatherConditions } from "./ConstantDatas.js";
+import { cityNameEl } from "./initWeatherApp.js";
 const errorEl = document.querySelector(".error");
 const loadingEl = document.querySelector(".loading");
-const cityNameEl = document.querySelector(".cityName");
 const degreeEl = document.querySelector(".degree");
 const descEl = document.querySelector(".desc");
 const searchInput = document.getElementById("searchInput");
@@ -36,8 +36,7 @@ export function clearWeatherData() {
   degreeEl.textContent = "";
   descEl.textContent = "";
   searchInput.value = "";
-  document.querySelector('.icon').style.backgroundImage = "";
-
+  document.querySelector(".icon").style.backgroundImage = "";
 }
 
 export function delayForDisplayingInfo(ms) {

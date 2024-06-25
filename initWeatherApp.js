@@ -8,11 +8,9 @@ import {
   delayForDisplayingInfo,
 } from "./utils.js";
 
-
-const cityNameEl = document.querySelector(".cityName");
+export const cityNameEl = document.querySelector(".cityName");
 const degreeEl = document.querySelector(".degree");
 const descEl = document.querySelector(".desc");
-
 
 export const cityListEl = document.querySelector(".city-list");
 export const internationalCityListEl = document.querySelector(
@@ -23,7 +21,6 @@ export const searchInput = document.getElementById("searchInput");
 
 export async function findWeatherInfo(e) {
   if (e.keyCode == "13") {
-   
     const cityName = searchInput.value.trim();
     try {
       if (cityName) {
@@ -31,7 +28,7 @@ export async function findWeatherInfo(e) {
         await delayForDisplayingInfo(1000);
         const data = await getWeatherInfo(cityName);
         hideLoading();
-        displayWeather(data, document.querySelector('.icon'));
+        displayWeather(data, document.querySelector(".icon"));
       }
     } catch (err) {
       hideLoading();
@@ -42,13 +39,15 @@ export async function findWeatherInfo(e) {
 }
 function displayWeather(data, targetElement) {
   const { name, main, weather } = data;
-  if (targetElement === document.querySelector('.icon')) {
+  if (targetElement === document.querySelector(".icon")) {
     cityNameEl.textContent = name;
     degreeEl.textContent = `${Math.round(main.temp)}°`;
     descEl.textContent = weather[0].description;
     searchInput.value = "";
   } else {
-    targetElement.querySelector(".degree").textContent = `${Math.round(main.temp)}°`;
+    targetElement.querySelector(".degree").textContent = `${Math.round(
+      main.temp
+    )}°`;
     targetElement.querySelector(".desc").textContent = weather[0].description;
   }
   setWeatherBackground(weather[0].description, targetElement);
@@ -86,7 +85,6 @@ export async function initializeCities(cityList, containerElement) {
       const cityElement = createCityElement(city, containerElement);
       const data = await getWeatherInfo(city);
       displayWeather(data, cityElement);
-      
     }
   } catch (err) {
     console.log(err);

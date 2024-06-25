@@ -1,4 +1,3 @@
-
 const baseUrl = "https://api.openweathermap.org/data/2.5/weather";
 
 const apiKey = "40780f584ae83749b62a5335ccf1e583";
