@@ -184,3 +184,24 @@ body {
   margin-bottom: 10px;
   color: rgb(255, 64, 0);
 }
+@media screen and (max-width: 600px) {
+  .city-list {
+    visibility: hidden;
+  }
+  .app{
+    width: 100%;
+    height: auto;
+  }
+  .internationalCity-list {
+    visibility: hidden;
+  }
+  .container {
+    margin: auto;
+    width: 69%;
+  }
+ .icon{
+    width: 200px;
+    height: 100px;
+ }
+
+}
