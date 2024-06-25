@@ -3,18 +3,9 @@
   padding: 0px;
   box-sizing: border-box;
 }
-
-.home_container {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-  
-}
 html,
 body {
   height: 100%;
-  overflow: hidden; /* Prevent scrollbars */
 }
 body {
   display: flex;
@@ -23,21 +14,17 @@ body {
   align-items: center;
   font-family: Arial, Helvetica, sans-serif;
   background-image: url("https://cdn.dribbble.com/userupload/12944901/file/original-60baefa3440135c24c8c9f2432ef2caf.jpg?resize=1200x900");
-  background-repeat: no-repeat; /*to avoid background repitition */
+  background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  height: 100vh; /*to cover the whole screen and make it responsive for any size device*/
 }
 
 .container {
-  flex: 1;
-  display: grid; /*to make the layout responsive*/
-  justify-content: space-around;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  max-width: 1200px; /* Set a maximum width if needed */
-  margin: 0 auto; /* Center the container */
-  padding: 40px;
+
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   
 }
 
@@ -46,7 +33,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 25px; /*to give some space from the top*/
+  margin-top: 25px; 
 }
 
 .app {
@@ -56,32 +43,24 @@ body {
   justify-content: center;
   width: 400px;
   background-color: lightgrey;
-  opacity: 1; /*to make the background color little transparent*/
-  padding: 20px; /*to give some space inside the box*/
-  margin-top: 40px;
-  margin-bottom: 20px;
   box-shadow: 5px 12px 20px black;
-  padding: 0;
-  border-radius: 15px;
+  border-radius: 25px;
 }
 .header {
-  width: 100%; /*to cover the whole width of the box*/
+  width: 100%; 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
 }
 .icon {
   width: 400px;
   height: 300px;
   height: 200px;
   margin-bottom: 10px;
-  background-repeat: no-repeat; /* Prevent image duplication */
-  background-size: cover; /* Ensure the image fits within the container */
-  background-position: center; /* Center the image */
-  position: relative;
-  z-index: 1;
+  background-repeat: no-repeat; 
+  background-size: cover; 
+  background-position: center;
 }
 
 .title {
@@ -92,8 +71,8 @@ body {
   padding: 10px;
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid grey;
-  outline: none; /*to remove the border when clicked*/
+  border-bottom: 3px solid grey;
+  outline: none;
   font-size: 20px;
   text-align: center;
   margin-top: 15px;
@@ -114,32 +93,42 @@ body {
   margin-top: 10px;
   font-size: 20px;
 }
-.tooltip {
-  position: absolute;
-  background-color: rgb(229, 229, 229);
-  padding: 10px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+.cityName,
+.degree,
+.desc,
+.daily,
+.error,
+.loading {
+  text-align: center;
 }
+
 .city-list {
+ 
   display: flex;
-  margin-top: 40px;
-  flex-wrap: wrap; /* Allows the elements to wrap to the next line */
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+}
+.internationalCity-list {
+
+  color: blue;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  flex-wrap: wrap;
 }
 .city {
   font-size: 20px;
   padding: 10px;
-  margin: 10px; /* Adjusted margin to ensure even spacing */
-  width: 150px; /* Fixed width */
-  height: 150px; /* Fixed height */
+  margin: 10px; 
+  width: 150px; 
+  height: 150px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgb(248, 235, 86);
-  border-radius: 15px;
-  cursor: pointer;
-  box-sizing: border-box; /* Includes padding and border in the total width and height */
+  border-radius: 25px;
+  box-sizing: border-box; 
 }
 .degree {
   margin-top: 10px;
@@ -166,8 +155,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%; /* Ensures content width matches the container */
-  text-align: center; /* Centers text within the element */
+  width: 100%; 
+  text-align: center; 
 }
 .city-name {
   font-size: 25px;
@@ -175,20 +164,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%; /* Ensures content width matches the container */
+  width: 100%; 
   text-align: center;
 }
 
-.internationalCity-list {
-  color: blue;
-  flex: 2;
-  max-width: 400px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  margin-top: 40px;
-  flex-wrap: wrap; /* Allows the elements to wrap to the next line */
-}
 .error {
   color: red;
   font-size: 20px;
@@ -200,8 +179,8 @@ body {
   margin-top: 10px;
   margin-bottom: 50px;
 }
-.app>h3 {
+.app > h3 {
+  font-size: 30px;
   margin-bottom: 10px;
-  color:blue;
+  color: rgb(255, 64, 0);
 }
-
